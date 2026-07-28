@@ -22,20 +22,9 @@ public class AuraNetworkMod implements ClientModInitializer {
                         Thread.sleep(2500);
                         client.execute(() -> {
                             if (client.getNetworkHandler() != null) {
-                                // LimboAuth ve standart auth pluginleri icin sirayla kayit ve giris komutlarini yolla
-                                client.getNetworkHandler().sendChatCommand("register " + token.trim() + " " + token.trim());
-                                
-                                // Biraz bekleyip login komutunu gonder (register'in islenmesi icin kucuk bir gecikme)
+                                // Sadece aurajoin komutu gonderilir
                                 new Thread(() -> {
                                     try {
-                                        Thread.sleep(300);
-                                        client.execute(() -> {
-                                            if (client.getNetworkHandler() != null) {
-                                                client.getNetworkHandler().sendChatCommand("login " + token.trim());
-                                            }
-                                        });
-                                        
-                                        // Ana sunucuya gectikten sonra giris mesajini attirmak icin aurajoin komutu gonderilir
                                         Thread.sleep(2500);
                                         client.execute(() -> {
                                             if (client.getNetworkHandler() != null) {

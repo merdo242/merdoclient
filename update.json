@@ -1,1 +1,1 @@
-{"LatestVersion":"8.61","DownloadUrl":"https://github.com/merdo242/auranetwork/raw/main/installer/AuraNetwork_Installer.exe","Changelog":"- Launcher hesap sistemi güvenli ve hızlı olan Firebase veritabanına geri döndürüldü. Performans artışı sağlandı."}
+{"LatestVersion":"8.62","DownloadUrl":"https://github.com/merdo242/auranetwork/raw/main/installer/AuraNetwork_Installer.exe","Changelog":"- Launcher'ın oyuna girerken otomatik /login ve /register komutlarını göndermesi kapatıldı."}

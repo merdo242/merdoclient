@@ -323,14 +323,16 @@ public class MinecraftLauncherService
                 catch { }
             }
 
-            string bridgeName = "auranetwork-1.1.2.jar";
+            string bridgeName = "auranetwork-1.1.3.jar";
             string bridgePath = Path.Combine(modsDir, bridgeName);
+
+            // bridge var mı kontrolü, yoksa indir
             if (!File.Exists(bridgePath))
             {
-                try
-                {
-                    using var client = new System.Net.Http.HttpClient { Timeout = TimeSpan.FromMinutes(2) };
-                    var bridgeBytes = client.GetByteArrayAsync("https://github.com/merdo242/auranetwork/raw/main/installer/auranetwork-1.1.2.jar").GetAwaiter().GetResult();
+                onProgress?.Invoke("AuraNetwork Bridge (v1.1.3) indiriliyor...");
+                using var client = new System.Net.Http.HttpClient();
+                try {
+                    var bridgeBytes = client.GetByteArrayAsync("https://github.com/merdo242/auranetwork/raw/main/installer/auranetwork-1.1.3.jar").GetAwaiter().GetResult();
                     File.WriteAllBytes(bridgePath, bridgeBytes);
                 }
                 catch { }
